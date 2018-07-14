@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "录入号码",
+  "usingComponents": {
+    "inputModal": "../../../components/inputModal/inputModal",
+    "myToast": "../../../components/myToast/myToast"
+  }
+}

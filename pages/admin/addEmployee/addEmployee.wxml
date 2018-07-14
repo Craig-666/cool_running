@@ -1,0 +1,8 @@
+<!--pages/admin/addEmployee/addEmployee.wxml-->
+<form bindsubmit='add'>
+  <input class='input' type='number' name='phone' placeholder='员工手机号' maxlength='11' placeholder-class='input-placeholder'></input>
+  <input class='input' maxlength='4' name='name' placeholder='员工姓名' placeholder-class='input-placeholder'></input>
+  <button class='add' form-type='submit'>添加</button>  
+</form>
+
+<myToast class='myToast'/>

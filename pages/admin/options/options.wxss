@@ -1,0 +1,4 @@
+/* pages/admin/options/options.wxss */
+.option{
+  margin: 80rpx
+}

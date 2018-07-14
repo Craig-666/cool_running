@@ -1,0 +1,34 @@
+<!--pages/employee/sendFood/sendFood.wxml-->
+<view class='top-title'>
+  <view style='flex:2'>序号</view>
+    <view style='flex:7'>电话</view>
+    <view style='flex:3;text-align:right'>转接号</view>
+    <view style='flex:3;text-align:right'>楼号</view>
+    <view style='flex:3;text-align:right'>-</view>
+</view>
+<view class='phoneList'>
+  <!-- <view class='phoneItem' wx:for="{{phoneList}}" bindtap='handleTap' data-index='{{index}}' data-phone='{{item.phoneNum}}' wx:key='index'>
+    <view class="info {{item.orderStatus == 2 ? 'info-done' :''}} {{item.orderStatus == 3 ? 'info-error' :''}}">
+      <view>{{item.phoneNum}}</view>
+      <view>{{item.transferNum}}</view>
+      <view>{{item.buildingNum}}</view>
+    </view>
+    <view class='option-block' wx:if="{{item.orderStatus != 2}}">
+      <view id='call' data-phone='{{item.phoneNum}}' catchtap='handleTap' class='options'>拨打电话</view>
+      <view id='done' style='border-left:1rpx solid #efeff4' data-index='{{index}}' catchtap='handleTap' class='options'>送餐完成</view>
+      <view wx:if="{{item.orderStatus != 3}}" style='border-left:1rpx solid #efeff4' id='error' data-index='{{index}}' catchtap='handleTap' class='options'>异常</view>
+    </view>
+  </view> -->
+  <view class="infos {{item.orderStatus == 3 ? 'info-error' :''}}" wx:for="{{phoneList}}" bindtap='handleTap' id='call' data-phone='{{item.phoneNum}}' wx:key='index'>
+    <view style='flex:2' class='info-done'>{{index+1}}</view>
+    <view style='flex:7'>{{item.phoneNum}}</view>
+    <view style='flex:3;text-align:right'>{{item.transferNum}}</view>
+    <view style='flex:3;text-align:right'>{{item.buildingNum}}</view>
+    <view style='flex:3;text-align:right' id='error' data-index='{{index}}' class='abnormal' catchtap='handleTap'>异常</view>
+  </view>
+</view>
+
+<view class='new' bindtap='newOrders'>新一轮</view>
+
+<myToast class='myToast' />
+<abnormalModal class='abModal' abList="{{list}}" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"/>

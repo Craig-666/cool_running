@@ -1,0 +1,17 @@
+<!--pages/admin/index/index.wxml-->
+<view class='title'>
+  <view style='flex:2'>员工</view>
+  <view style='flex:1'>趟数</view>
+  <view style='flex:1'>单数</view>
+</view>
+
+<view class='list'>
+  <view data-phone='{{item.key}}' data-name='{{item.otkey}}' id='employee' bindtap='handleTap' wx:for="{{datasource}}" wx:key='index' class='item'>
+    <view style='flex:2'>{{item.otkey}}<text style='color:#aaa'> ({{item.key}})</text></view>
+    <view style='flex:1'>{{item.delivery_count}}</view>
+    <view style='flex:1'>{{item.count}}</view>
+  </view>
+</view>
+
+<view id='search' class='other' bindtap='handleTap'>查</view>
+<view id='abnormal' wx:if="{{abCount>0}}" class='abnormal' bindtap='handleTap'>{{abCount}}</view>

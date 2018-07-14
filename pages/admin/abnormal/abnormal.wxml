@@ -1,0 +1,15 @@
+<!--pages/admin/abnormal/abnormal.wxml-->
+<view class='total info-error'>共{{total}}单异常</view>
+<view class='search-list'>
+  <view wx:for='{{dataSource}}' wx:key='index' class="item">
+    <view bindtap='handleTap' data-phone='{{item.phone_num}}' class='info'>
+      <view>拨打：{{item.phone_num}}</view>
+      <view>转接：{{item.transfer_num}}</view>
+      <view>楼号：{{item.building_num}}</view>
+    </view>
+    <view class='info'>创建时间:{{item.updatedAt}}</view>
+    <view class='info info-error'>异常原因:{{item.abnormal_reason}}</view>
+    <view bindtap='handleTap' data-phone='{{item.create_phone}}' class='info info-error'>送餐员:{{item.create_name}} {{item.create_phone}}</view>
+  </view>
+</view>
+<view wx:if='{{dataSource.length == total}}' class='no-more'>已加载全部</view>

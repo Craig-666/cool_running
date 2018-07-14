@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "按天查询",
+  "navigationBarBackgroundColor": "#F5082A",
+  "usingComponents": {
+    "myToast": "../../../components/myToast/myToast"
+  },
+  "enablePullDownRefresh": true
+}

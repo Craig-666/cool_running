@@ -1,0 +1,91 @@
+/* pages/employee/sendFood/sendFood.wxss */
+.phoneList{
+  padding-bottom: 88rpx;
+  padding-top: 80rpx
+}
+
+/* .phoneItem {
+  font-size: 38rpx;
+  background-color: #fafafa; 
+}
+
+.phoneItem .info {
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #efeff4;
+}
+
+
+
+
+.phoneItem .option-block{
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 8rpx solid #F5082A
+}
+
+.options{
+  flex: 1;
+  line-height: 80rpx;
+  text-align: center
+}
+
+.options:active{
+  opacity: 0.6
+}*/
+
+.new{
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: #00A800;
+  color: white;
+  width: 100%
+}
+
+.new:active{
+  opacity: 0.6
+} 
+
+
+.infos{
+  font-size: 38rpx;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  border-bottom: 4rpx solid #efeff4;
+}
+
+.abnormal{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.top-title{
+  line-height: 80rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  z-index: 3;
+  top: 0;
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #efeff4;
+  position: fixed;
+  width: 100%;
+  background-color: #fafafa
+}
+
+.info-error{
+  color : #F5082A
+}
+.info-done{
+  color : #00A800
+}
+

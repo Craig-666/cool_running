@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "查询",
+  "navigationBarBackgroundColor": "#F5082A",
+  "usingComponents": {
+    "myToast": "../../../components/myToast/myToast"
+  }
+}

@@ -1,0 +1,24 @@
+<!--pages/admin/query/query.wxml-->
+<form bindsubmit='search'>
+  <view class='search-top'>
+    <input type='number' name='phone' maxlength='11' placeholder='要查询的手机号'></input>
+    <button style='display:flex;align-items:center;height:80rpx' form-type='submit'>查询</button>
+  </view>
+</form>
+
+<view class='result'>
+  <view bindtap="call" wx:for='{{result}}' wx:key='index' data-phone='{{item.create_phone}}' class="list {{item.order_status == 2 ? 'done' :''}} {{item.order_status == 3 ? 'error' :''}}">
+    <view class='item'>
+      <view>配送员:{{item.create_name}}</view>
+      <view>{{item.create_phone}}</view>
+      
+    </view>
+    <view class='item'>
+      <view>转接号:{{item.transfer_num}}</view>
+      <view>楼号:{{item.building_num}}</view>
+      <view>{{item.updatedAt}}</view>
+    </view>
+  </view>
+</view>
+
+<myToast class='myToast' />

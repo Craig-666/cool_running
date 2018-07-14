@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "派送",
+  "usingComponents": {
+    "myToast": "../../../components/myToast/myToast",
+    "abnormalModal": "../../../components/abnormalModal/abnormalModal"
+  }
+}

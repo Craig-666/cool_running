@@ -1,0 +1,44 @@
+/* pages/employee/index/index.wxss */
+.fix-block{
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  height: 250rpx;
+  border-bottom: 1rpx solid #efeff4;
+  background-color: #fafafa
+}
+.num-block{
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx
+}
+.input{
+  height: 80rpx;
+  border: 1rpx solid #acacac;
+  border-radius: 8rpx;
+  padding-left: 10rpx
+}
+
+.btn-block{
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+
+}
+
+.phoneList{
+  margin-top: 250rpx;
+}
+
+.phoneList .phoneItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #efeff4;
+}
+.phoneList .phoneItem .change{
+  padding: 20rpx;
+  border-radius: 6rpx;
+  background: #efeff4
+}

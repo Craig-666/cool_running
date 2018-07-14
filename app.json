@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/admin/index/index",
+    "pages/admin/addEmployee/addEmployee",
+    "pages/employee/index/index",
+    "pages/employee/sendFood/sendFood",
+    "pages/admin/query/query",
+    "pages/admin/monthQuery/monthQuery",
+    "pages/admin/dayQuery/dayQuery",
+    "pages/admin/options/options",
+    "pages/admin/abnormal/abnormal",
+    "pages/admin/deliveryInfo/deliveryInfo",
+    "pages/admin/deliveryInfo/deliveryOrder/deliveryOrder"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00A800",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  }
+}

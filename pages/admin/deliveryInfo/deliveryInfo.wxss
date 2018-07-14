@@ -1,0 +1,25 @@
+/* pages/admin/deliveryInfo/deliveryInfo.wxss */
+.emp-info{
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #efeff4;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  z-index: 2;
+  position: fixed;
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.list{
+  padding-top: 81rpx
+}
+
+.item{
+  display: flex;
+  border-bottom: 2rpx solid #efeff4;
+  align-items: center;
+  justify-content: space-between;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx
+}

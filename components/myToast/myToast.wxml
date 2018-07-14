@@ -1,0 +1,4 @@
+<!--components/toast/toast.wxml-->
+<view class="myToast" wx:if="{{isHidden}}"  animation="{{animationData}}" style="opacity:0">
+  {{content}}
+</view>

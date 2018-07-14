@@ -1,0 +1,26 @@
+/**app.wxss**/
+
+page{
+  font-size: 30rpx;
+  color: #333
+}
+
+
+.input-placeholder{
+  color: #acacac
+}
+
+/*异常颜色*/
+.info-error{
+  color : #F5082A
+}
+.info-done{
+  color : #00A800
+}
+.no-more{
+  width: 100%;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #acacac
+}

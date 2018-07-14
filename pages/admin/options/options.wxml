@@ -1,0 +1,6 @@
+<!--pages/admin/index/index.wxml-->
+<button id='add' bindtap='handleTap' class='option'>添加员工</button>
+<button id='query' bindtap='handleTap' class='option'>通话查询</button>
+<button id='day' bindtap='handleTap' class='option'>按天查询</button>
+<button id='month' bindtap='handleTap' class='option'>按月查询</button>
+<button id='logout' class='option' bindtap='handleTap'>退出</button>  
