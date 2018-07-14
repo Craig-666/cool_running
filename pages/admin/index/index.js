@@ -30,6 +30,9 @@ Page({
   },
 
   queryAbnormal:function(){
+    if(!util.getUserId()){
+      return
+    }
     let that = this
     const query = Bmob.Query('order');
     query.equalTo('createdAt', '>', util.getToday())

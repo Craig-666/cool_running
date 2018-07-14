@@ -20,7 +20,7 @@ Page({
       case 'logout':
         {
           wx.clearStorage()
-          wx.redirectTo({
+          wx.reLaunch({
             url: '../../index/index',
           })
         }
