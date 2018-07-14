@@ -91,25 +91,6 @@ Page({
           curIndex:index
         })
         that.abModal.showModal()
-        // wx.showActionSheet({
-        //   itemList: this.data.list,
-        //   success:function(re){
-        //     let reason = that.data.list[re.tapIndex]
-        //     const query = Bmob.Query('order');
-        //     query.set('id', phoneList[index].objectId)
-        //     query.set('order_status', 3)
-        //     query.set('abnormal_reason', reason)
-        //     query.save().then(res => {
-        //       that.myToast.show('操作成功')
-        //       phoneList[index].orderStatus = 3
-        //       that.setData({
-        //         phoneList
-        //       })
-        //     }).catch(err => {
-        //       that.myToast.show('操作失败')
-        //     })
-        //   }
-        // })
       } break
       case 'done':{
         wx.showModal({
@@ -117,25 +98,26 @@ Page({
           content: '确定要完成吗?',
           success: function (res) {
             if (res.confirm) {
-              const query = Bmob.Query('order');
-              query.set('id', phoneList[index].objectId)
-              query.set('order_status', 2)
-              query.save().then(res => {
-                that.myToast.show('操作成功')
-                phoneList[index].orderStatus = 2
-                that.setData({
-                  phoneList
-                })
-              }).catch(err => {
-                that.myToast.show('操作失败')
-              })
+              
             }
           }
         })
       }break
       case 'call': {
+				let that = this
         wx.makePhoneCall({
           phoneNumber: dataset.phone,
+					success:function(){
+						const query = Bmob.Query('order');
+						query.set('id', phoneList[index].objectId)
+						query.set('order_status', 2)
+						query.save().then(res => {
+							phoneList[index].orderStatus = 2
+							that.setData({
+								phoneList
+							})
+						})
+					}
         })
       } break
     }

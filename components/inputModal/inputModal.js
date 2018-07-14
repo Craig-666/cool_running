@@ -50,7 +50,6 @@ Component({
 		hideModal() {
 			this.setData({
 				isShow: !this.data.isShow,
-				inputValue:''
 			})
 		},
 		//展示弹框

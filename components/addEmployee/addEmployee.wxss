@@ -1,0 +1,73 @@
+/* components/inputModal/inputModal.wxss */
+input{
+  height: 88rpx;
+	border: 1rpx solid #e5e5e5;
+	border-radius: 6rpx;
+  text-align: left;
+	padding-left: 10rpx
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 666;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .3)
+}
+
+.input-modal {
+  position: fixed;
+  z-index: 888;
+  width: 80%;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  overflow: hidden;
+	font-size: 32rpx
+}
+
+.input-modal .title{
+	font-size: 18px;
+  padding: 15px 15px 5px;
+}
+.input-modal .input{
+	
+	margin: 30rpx 30rpx 0 30rpx;
+	
+}
+.input-modal .input-block{
+  display: flex;
+  margin: 30rpx
+}
+.input-modal .footer{
+	margin-top: 30rpx;
+	border-top: 1rpx solid #e5e5e5;
+	height: 88rpx;
+	display: flex;
+	box-sizing: border-box
+}
+
+.input-modal .footer .left ,.input-modal .footer .right{
+	width: 50%;
+	text-align: center;
+	line-height: 88rpx;
+	color: #999;
+
+}
+.input-modal .footer .left{
+	border-right: 1rpx solid #e5e5e5;
+	box-sizing: border-box
+}
+.input-modal .footer .right{
+	color: #ff8840
+}
+.input-modal .footer .left:active ,.input-modal .footer .right:active{
+	opacity: 0.6
+}

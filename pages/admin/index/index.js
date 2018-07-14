@@ -17,13 +17,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getList(true)
     this.data.interval = setInterval(
       ()=>{
         this.queryAbnormal()
       },
       1000 * 60)
   },
+
+	onShow:function(){
+		this.getList(true)
+	},
 
   onUnload:function(){
     clearInterval(this.data.interva)

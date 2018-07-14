@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "添加员工",
-  "navigationBarBackgroundColor": "#F5082A",
-  "usingComponents": {
-    "myToast": "../../../components/myToast/myToast"
-  }
-}
