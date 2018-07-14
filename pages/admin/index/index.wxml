@@ -6,10 +6,10 @@
 </view>
 
 <view class='list'>
-  <view data-phone='{{item.key}}' data-name='{{item.otkey}}' id='employee' bindtap='handleTap' wx:for="{{datasource}}" wx:key='index' class='item'>
-    <view style='flex:2'>{{item.otkey}}<text style='color:#aaa'> ({{item.key}})</text></view>
+  <view data-phone='{{item.username}}' data-name='{{item.name}}' id='employee' bindtap='handleTap' wx:for="{{datasource}}" wx:key='index' class='item'>
+    <view style='flex:2'>{{item.name}}<text style='color:#aaa'> ({{item.username}})</text></view>
     <view style='flex:1'>{{item.delivery_count}}</view>
-    <view style='flex:1'>{{item.count}}</view>
+    <view style='flex:1'>{{item.order_count}}</view>
   </view>
 </view>
 

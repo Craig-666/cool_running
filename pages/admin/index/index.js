@@ -42,43 +42,46 @@ Page({
       })
     })
   },
-
-
   getList:function(loading){
-    if(loading){
+    if (loading) {
       wx.showLoading({
         title: '加载中。。',
       })
     }
     let that = this
-    const query = Bmob.Query('order');
-    query.equalTo('createdAt', '>', util.getToday())
+    const query = Bmob.Query('_User');
     query.equalTo('boss_id', '==', util.getUserId())
-
-    const queryDC = Bmob.Query('delivery_count');
-    queryDC.equalTo('createdAt', '>', util.getToday())
-    
-    Promise.all([
-      query.find(),
-      queryDC.find()
-    ]).then(values=>{
-      let orderList = util.groupby(values[0], 'create_phone','create_name')
-      let countList = util.groupby(values[1], 'user_phone')
-      orderList.map(ele=>{
-        countList.map(val=>{
-          if (val.key == ele.key){
-            ele.delivery_count = val.count
-          }
+    query.find().then(emplist=>{
+      let aList = new Array()
+      emplist.map(emp => {
+        var queryObj = Bmob.Query('order');
+        queryObj.equalTo('boss_id', '==', util.getUserId());
+        queryObj.equalTo('create_phone', '==', emp.username);
+        queryObj.equalTo('createdAt', '>', util.getToday());
+        aList.push(queryObj.count())
+      })
+      let bList = new Array()
+      emplist.map(emp => {
+        var queryObj = Bmob.Query('delivery_count');
+        queryObj.equalTo('createdAt', '>', util.getToday());
+        queryObj.equalTo('user_phone', '==', emp.username);
+        bList.push(queryObj.count())
+      })
+      Promise.all(aList).then(alist=>{
+        Promise.all(bList).then(blist=>{
+          emplist.map((ele,index)=>{
+            ele.delivery_count = blist[index]
+            ele.order_count = alist[index]
+          })
+          console.log(emplist)
+          that.setData({
+            datasource: emplist
+          },()=>{
+            wx.hideLoading()
+            wx.stopPullDownRefresh()
+          })
         })
       })
-      that.setData({
-        datasource:orderList
-      })
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
-    }).catch(()=>{
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
     })
   },
 
