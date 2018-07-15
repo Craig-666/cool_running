@@ -26,6 +26,7 @@ Page({
 
 	onShow:function(){
 		this.getList(true)
+		this.queryAbnormal()
 	},
 
   onUnload:function(){
@@ -38,12 +39,19 @@ Page({
     query.equalTo('createdAt', '>', util.getToday())
     query.equalTo('boss_id', '==', util.getUserId())
     query.equalTo('order_status',"==" ,3)
-    query.count().then(res=>{
-      console.log(res)
-      that.setData({
-        abCount:res
-      })
-    })
+
+		const bq = Bmob.Query('order');
+		bq.equalTo('createdAt', '>', util.getToday())
+		bq.equalTo('boss_id', '==', util.getUserId())
+		bq.equalTo('order_status', "==", 3)
+		bq.equalTo('handled', "!=", true)
+
+		Promise.all([query.count(),bq.count()]).then(values=>{
+			that.setData({
+				abCount: values[0],
+				waitHandle:values[1]
+			})
+		})
   },
   getList:function(loading){
     if (loading) {

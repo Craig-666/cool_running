@@ -1,5 +1,5 @@
 <!--pages/admin/deliveryInfo/deliveryOrder/deliveryOrder.wxml-->
-<view wx:for="{{orderList}}" wx:key='index' class="item {{item.order_status == 2 ? 'info-done' :''}} {{item.order_status == 3 ? 'info-error' :''}}">
+<view wx:for="{{orderList}}" wx:key='index' class="item {{(item.order_status == 2 || item.handled) ? 'info-done' :''}} {{(item.order_status == 3 && !item.handled)? 'info-error' :''}}">
   <view class='info'>
     <view>电话:{{item.phone_num}}</view>
     <view>转接:{{item.transfer_num}}</view>

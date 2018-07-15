@@ -28,7 +28,6 @@ Page({
 
   handleInput: function(e) {
     let value = e.detail.value
-    util.makeVoice(value)
     switch (e.currentTarget.id) {
       case 'phone':
         {

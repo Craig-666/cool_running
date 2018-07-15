@@ -7,7 +7,7 @@
 </form>
 
 <view class='result'>
-  <view bindtap="call" wx:for='{{result}}' wx:key='index' data-phone='{{item.create_phone}}' class="list {{item.order_status == 2 ? 'info-done' :''}} {{item.order_status == 3 ? 'info-error' :''}}">
+  <view bindtap="call" wx:for='{{result}}' wx:key='index' data-phone='{{item.create_phone}}' class="list {{(item.order_status == 2 || item.handled) ? 'info-done' :''}} {{(item.order_status == 3 && !item.handled)? 'info-error' :''}}">
     <view class='item'>
       <view>配送员:{{item.create_name}}</view>
       <view>{{item.create_phone}}</view>

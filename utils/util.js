@@ -99,64 +99,6 @@ const checkPhoneNum = (phoneNum) => {
   }
 }
 
-const makeVoice = (text)=>{
-  if(text.length>0){
-    let end = text.substr(text.length - 1, 1)
-    switch (end){
-      case '0':{
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/0.wav'
-        innerAudioContext.play()
-      }break
-      case '1': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/1.wav'
-        innerAudioContext.play()
-      } break
-      case '2': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/2.wav'
-        innerAudioContext.play()
-      } break
-      case '3': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/3.wav'
-        innerAudioContext.play()
-      } break
-      case '4': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/4.wav'
-        innerAudioContext.play()
-      } break
-      case '5': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/5.wav'
-        innerAudioContext.play()
-      } break
-      case '6': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/6.wav'
-        innerAudioContext.play()
-      } break
-      case '7': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/7.wav'
-        innerAudioContext.play()
-      } break
-      case '8': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/8.wav'
-        innerAudioContext.play()
-      } break
-      case '9': {
-        const innerAudioContext = wx.createInnerAudioContext()
-        innerAudioContext.src = '/resource//voices/9.wav'
-        innerAudioContext.play()
-      } break
-    }
-  }
-}
-
 module.exports = {
   formatTime: formatTime,
   getUserInfo: getUserInfo,
@@ -165,7 +107,6 @@ module.exports = {
   checkPhoneNum: checkPhoneNum,
   getUserPhone:getUserPhone,
   getUserName: getUserName,
-  makeVoice:makeVoice,
   groupby:groupby,
   getBossId:getBossId,
   shortToday: shortToday,

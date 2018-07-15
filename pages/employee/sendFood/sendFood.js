@@ -56,11 +56,7 @@ Page({
   _confirmEvent() {
     let that = this
     let reason = ''
-    if(that.abModal.data.abReason != ''){
-      reason = that.abModal.data.abReason
-    }else{
-      reason = that.abModal.data.abList[that.abModal.data.selIndex]
-    }
+		reason = that.abModal.data.abList[that.abModal.data.selIndex] + ';' + that.abModal.data.abReason
     let phoneList = this.data.phoneList
     let index = this.data.curIndex
     const query = Bmob.Query('order');
