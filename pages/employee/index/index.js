@@ -132,7 +132,7 @@ Page({
       })
       wx.hideLoading()
       wx.redirectTo({
-        url: '../sendFood/sendFood?phoneList=' + JSON.stringify(phoneList),
+				url: '../sendFood/sendFood?phoneList=' + JSON.stringify(phoneList.reverse()),
       })
     }).catch(err => {
       wx.hideLoading()

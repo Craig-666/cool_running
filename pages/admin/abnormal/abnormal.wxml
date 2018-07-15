@@ -1,5 +1,5 @@
 <!--pages/admin/abnormal/abnormal.wxml-->
-<view class='total'>共
+<view class='total'>当天共
   <text class='info-error'>{{total}}</text>单异常 待处理:
   <text class='info-error'>{{waitCount}}</text>
 </view>

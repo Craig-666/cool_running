@@ -117,19 +117,28 @@ Page({
 				}
 			});
 		}else{
-			const query = Bmob.Query('_User');
-			query.set('id', info.objectId)
-			query.set('username', info.username)
-			query.set('name', info.name)
-			query.save().then(res => {
-				that.myToast.show('修改成功')
-				list[index] = info
-				that.setData({
-					employeeList:list
-				})
-			}).catch(err => {
-				that.myToast.show('修改失败')
-			})	
+			var query = Bmob.Query('_User');
+			query.equalTo('username', "==", info.username);
+			query.find().then(res => {
+				if(res.length>0){
+					that.myToast.show('手机号不能重复')
+				}else{
+					const query = Bmob.Query('_User');
+					query.set('id', info.objectId)
+					query.set('username', info.username)
+					query.set('name', info.name)
+					query.save().then(res => {
+						that.myToast.show('修改成功')
+						list[index] = info
+						that.setData({
+							employeeList: list
+						})
+					}).catch(err => {
+						that.myToast.show('修改失败')
+					})
+				}
+			})
+				
 		}
 		this.addModal.hideModal()
 	},
