@@ -1,0 +1,30 @@
+/* pages/employee/myOrder/myOrder.wxss */
+.top{
+	position: fixed;
+	line-height: 80rpx;
+	border-bottom: 2rpx solid #efeff4;
+	width: 100%;
+	background-color: #fafafa;
+	display: flex;
+	z-index: 2;
+	top: 0
+}
+.date{
+	flex: 1;
+	text-align: center
+}
+
+.list{
+	padding-top: 82rpx;
+}
+.orderItem{
+	border-bottom: 4rpx solid #efeff4
+}
+.info{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 20rpx 30rpx ;
+	border-bottom: 1rpx solid #efeff4
+}

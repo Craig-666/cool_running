@@ -168,12 +168,12 @@ Page({
       this.myToast.show('楼号没输')
       return
     }
-
-    let list = [...this.data.phoneList, {
-      phoneNum: this.data.phoneNum,
-      transferNum: this.data.transferNum,
-      buildingNum: this.data.buildingNum,
-    }]
+		let list = this.data.phoneList
+		list.unshift({
+			phoneNum: this.data.phoneNum,
+			transferNum: this.data.transferNum,
+			buildingNum: this.data.buildingNum,
+		})
     this.setData({
       phoneList: list,
       phoneNum: '',
@@ -185,9 +185,12 @@ Page({
   },
 
   logout: function() {
-    wx.clearStorage()
-    wx.redirectTo({
-      url: '../../index/index',
-    })
+    // wx.clearStorage()
+    // wx.redirectTo({
+    //   url: '../../index/index',
+    // })
+		wx.navigateTo({
+			url: '../myOrder/myOrder',
+		})
   }
 })

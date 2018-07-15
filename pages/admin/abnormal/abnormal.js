@@ -37,20 +37,28 @@ Page({
     query.equalTo("createdAt", ">", that.data.startDate)
     query.equalTo('order_status', "==", 3)
     query.equalTo('boss_id', '==', util.getUserId())
+		query.equalTo('handled', '==', true)
     query.limit(1000)
+
+		const aa = Bmob.Query("order");
+		aa.equalTo("createdAt", ">", that.data.startDate)
+		aa.equalTo('order_status', "==", 3)
+		aa.equalTo('boss_id', '==', util.getUserId())
+		aa.limit(1000)
 
 		const qq = Bmob.Query("order");
 		qq.equalTo("createdAt", ">", that.data.startDate)
 		qq.equalTo('order_status', "==", 3)
 		qq.equalTo('boss_id', '==', util.getUserId())
 		qq.equalTo('handled','!=',true)
+		qq.limit(1000)
 
-
-		Promise.all([query.find(), query.count(), qq.count()]).then(res => {
-      that.setData({
-        dataSource: res[0],
+		Promise.all([query.find(), aa.count(),qq.find(), qq.count()]).then(res => {
+			let list= res[2].concat(res[0])
+			that.setData({
+				dataSource: list,
         total:res[1],
-				waitCount:res[2]
+				waitCount:res[3]
       })
       wx.hideLoading()
     }).catch(()=>{

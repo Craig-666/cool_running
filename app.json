@@ -11,7 +11,8 @@
     "pages/admin/abnormal/abnormal",
     "pages/admin/deliveryInfo/deliveryInfo",
     "pages/admin/deliveryInfo/deliveryOrder/deliveryOrder",
-    "pages/admin/employee/employee"
+    "pages/admin/employee/employee",
+    "pages/employee/myOrder/myOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

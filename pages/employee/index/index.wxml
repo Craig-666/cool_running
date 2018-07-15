@@ -6,7 +6,7 @@
     <input class='input' focus='{{buildingFocus}}' style='flex:1;margin-left:20rpx' id='building' value='{{buildingNum}}' bindinput='handleInput' type='number' placeholder='楼号' maxlength='6' placeholder-class='input-placeholder'></input>
   </view>
   <view class='btn-block'>
-    <button style='flex:1' bindtap='logout'>退出</button> 
+    <button style='flex:1' bindtap='logout'>配送单</button> 
     <button style='flex:1;margin-left:20rpx' id='done' type='warn' bindtap='handleTap'>完成</button>
     <button style='flex:1;margin-left:20rpx' id='goon' type='primary' bindtap='handleTap'>添加</button>
   </view>

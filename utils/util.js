@@ -17,6 +17,12 @@ const today=()=>{
   return [year, month, day].map(formatNumber).join('-') + ' ' + ['00', '00', '00'].map(formatNumber).join(':')
 }
 
+const curMonth = () => {
+	let date = new Date()
+	const year = date.getFullYear()
+	const month = date.getMonth() + 1
+	return [year, month, '01'].map(formatNumber).join('-') + ' ' + ['00', '00', '00'].map(formatNumber).join(':')
+}
 const shortToday = () => {
   let date = new Date()
   const year = date.getFullYear()
@@ -110,5 +116,6 @@ module.exports = {
   groupby:groupby,
   getBossId:getBossId,
   shortToday: shortToday,
-  getBeforeDays: getBeforeDays
+  getBeforeDays: getBeforeDays,
+	getCurMonth: curMonth
 }
