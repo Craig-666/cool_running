@@ -74,6 +74,14 @@ Page({
 					phoneNumber: phone,
 				})
 			}break
+			case 'copy':{
+				let index = target.dataset.index
+				let item = this.data.dataSource[index]
+				let info = item.abnormal_reason + '\n' +item.phone_num + '\n' +item.transfer_num
+				wx.setClipboardData({
+					data: info,
+				})
+			}break
 			case 'handle':{
 				let that = this
 				let list = this.data.dataSource

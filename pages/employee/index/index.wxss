@@ -42,3 +42,19 @@
   border-radius: 6rpx;
   background: #efeff4
 }
+
+.last{
+	position: fixed;
+	line-height: 100rpx;
+	width: 100rpx;
+	background: #00A800;
+	color: white;
+	border-radius: 50rpx;
+	z-index: 10;
+	bottom: 100rpx;
+	right: 50rpx;
+	text-align: center
+}
+.last:active{
+	opacity: .6
+}

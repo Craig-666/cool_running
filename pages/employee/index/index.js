@@ -75,6 +75,15 @@ Page({
           this.goon()
         }
         break
+      case 'last':
+        {
+					if(wx.getStorageSync('delivery_objectId')){
+						wx.redirectTo({
+							url: '../sendFood/sendFood',
+						})
+					}
+        }
+        break
       case 'done':
         {
           if (this.data.phoneList.length == 0) {
@@ -89,6 +98,7 @@ Page({
           query.set('order_count', this.data.phoneList.length)
           query.save().then(res => {
             let objectId = res.objectId
+            wx.setStorageSync('delivery_objectId', objectId)
             that.savePhone(objectId)
           })
         }
@@ -127,12 +137,12 @@ Page({
     // 传入刚刚构造的数组
     Bmob.Query('order').saveAll(queryArray).then(result => {
       let phoneList = this.data.phoneList
-      phoneList.map((phone,index)=>{
-        Object.assign(phone,result[index].success)
+      phoneList.map((phone, index) => {
+        Object.assign(phone, result[index].success)
       })
       wx.hideLoading()
       wx.redirectTo({
-				url: '../sendFood/sendFood?phoneList=' + JSON.stringify(phoneList.reverse()),
+        url: '../sendFood/sendFood',
       })
     }).catch(err => {
       wx.hideLoading()
@@ -168,12 +178,12 @@ Page({
       this.myToast.show('楼号没输')
       return
     }
-		let list = this.data.phoneList
-		list.unshift({
-			phoneNum: this.data.phoneNum,
-			transferNum: this.data.transferNum,
-			buildingNum: this.data.buildingNum,
-		})
+    let list = this.data.phoneList
+    list.unshift({
+      phoneNum: this.data.phoneNum,
+      transferNum: this.data.transferNum,
+      buildingNum: this.data.buildingNum,
+    })
     this.setData({
       phoneList: list,
       phoneNum: '',
@@ -185,12 +195,12 @@ Page({
   },
 
   logout: function() {
-    // wx.clearStorage()
-    // wx.redirectTo({
-    //   url: '../../index/index',
+    wx.clearStorage()
+    wx.redirectTo({
+      url: '../../index/index',
+    })
+    // wx.navigateTo({
+    //   url: '../myOrder/myOrder',
     // })
-		wx.navigateTo({
-			url: '../myOrder/myOrder',
-		})
   }
 })

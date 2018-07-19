@@ -7,11 +7,11 @@
     <view style='flex:3;text-align:right'>-</view>
 </view>
 <view class='phoneList'>
-  <view class="infos {{item.orderStatus == 3 ? 'info-error' :''}} {{item.orderStatus == 2 ? 'info-done' :''}}"  data-index='{{index}}' wx:for="{{phoneList}}" bindtap='handleTap' id='call' data-phone='{{item.phoneNum}}' wx:key='index'>
+  <view class="infos {{item.order_status == 3 ? 'info-error' :''}} {{item.order_status == 2 ? 'info-done' :''}}"  data-index='{{index}}' wx:for="{{phoneList}}" bindtap='handleTap' id='call' data-phone='{{item.phone_num}}' wx:key='index'>
     <view style='flex:2' class='info-done'>{{index+1}}</view>
-    <view style='flex:7'>{{item.phoneNum}}</view>
-    <view style='flex:3;text-align:right'>{{item.transferNum}}</view>
-    <view style='flex:3;text-align:right'>{{item.buildingNum}}</view>
+    <view style='flex:7'>{{item.phone_num}}</view>
+    <view style='flex:3;text-align:right'>{{item.transfer_num}}</view>
+    <view style='flex:3;text-align:right'>{{item.building_num}}</view>
     <view style='flex:3;text-align:right' id='error' data-index='{{index}}' class='abnormal' catchtap='handleTap'>异常</view>
   </view>
 </view>

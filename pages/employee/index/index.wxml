@@ -22,6 +22,6 @@
 
 </view>
  
-
+<view class='last' id='last' bindtap='handleTap'>上轮</view>
 <myToast class='myToast' />
 <inputModal class='inputModal' title='修改' orderItem='{{selectItem}}' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"/>
