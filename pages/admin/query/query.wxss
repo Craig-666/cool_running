@@ -36,9 +36,3 @@
   justify-content: space-between
 }
 
-.error{
-  color : #F5082A
-}
-.done{
-  color : #00A800
-}

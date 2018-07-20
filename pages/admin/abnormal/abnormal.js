@@ -18,10 +18,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getList(true, true)
+    this.getList(true)
+		this.myToast = this.selectComponent(".myToast")
   },
 
-  getList: function(loading, clear) {
+	getwaitCount:function(){
+
+	},
+
+  getList: function(loading) {
     if (loading) {
       wx.showLoading({
         title: '加载中..',
@@ -32,45 +37,70 @@ Page({
     query.equalTo("createdAt", ">", that.data.startDate)
     query.equalTo('order_status', "==", 3)
     query.equalTo('boss_id', '==', util.getUserId())
-    query.limit(that.data.limit)
-    query.skip(that.data.limit * (that.data.pageNo - 1))
-    let dataSource = that.data.dataSource
-    if (clear) {
-      dataSource = []
-    }
-    Promise.all([query.find(), query.count()]).then(res => {
-      console.log(res)
-      let arr = dataSource.concat(res[0])
-      that.setData({
-        dataSource: arr,
-        total:res[1]
+		query.equalTo('handled', '==', true)
+    query.limit(1000)
+
+		const aa = Bmob.Query("order");
+		aa.equalTo("createdAt", ">", that.data.startDate)
+		aa.equalTo('order_status', "==", 3)
+		aa.equalTo('boss_id', '==', util.getUserId())
+		aa.limit(1000)
+
+		const qq = Bmob.Query("order");
+		qq.equalTo("createdAt", ">", that.data.startDate)
+		qq.equalTo('order_status', "==", 3)
+		qq.equalTo('boss_id', '==', util.getUserId())
+		qq.equalTo('handled','!=',true)
+		qq.limit(1000)
+
+		Promise.all([query.find(), aa.count(),qq.find(), qq.count()]).then(res => {
+			let list= res[2].concat(res[0])
+			that.setData({
+				dataSource: list,
+        total:res[1],
+				waitCount:res[3]
       })
       wx.hideLoading()
-      wx.stopPullDownRefresh()
     }).catch(()=>{
       wx.hideLoading()
-      wx.stopPullDownRefresh()
     })
   },
   handleTap:function(e){
-    let phone = e.currentTarget.dataset.phone
-    wx.makePhoneCall({
-      phoneNumber: phone,
-    })
+		let target = e.currentTarget
+		let phone = target.dataset.phone
+		switch (target.id){
+			case 'call':{
+				wx.makePhoneCall({
+					phoneNumber: phone,
+				})
+			}break
+			case 'copy':{
+				let index = target.dataset.index
+				let item = this.data.dataSource[index]
+				let info = item.abnormal_reason + '\n' +item.phone_num + '\n' +item.transfer_num
+				wx.setClipboardData({
+					data: info,
+				})
+			}break
+			case 'handle':{
+				let that = this
+				let list = this.data.dataSource
+				let index = target.dataset.index
+				const query = Bmob.Query('order');
+				query.set('id', list[index].objectId)
+				query.set('handled', true)
+				query.save().then(res => {
+					that.myToast.show('操作成功')
+					list[index].handled = true
+					that.setData({
+						dataSource:list
+					})
+					that.getList(true)
+				}).catch(err => {
+					that.myToast.show('操作失败')
+				})
+			}break
+		}
+    
   },
-  onReachBottom: function() {
-    if (this.data.total == this.data.dataSource.length) {
-      return
-    }
-    this.setData({
-      pageNo: this.data.pageNo + 1
-    })
-    this.getList(true, false)
-  },
-  onPullDownRefresh: function() {
-    this.setData({
-      pageNo: 1
-    })
-    this.getList(true, true)
-  }
 })

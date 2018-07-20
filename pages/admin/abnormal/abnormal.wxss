@@ -16,7 +16,12 @@
 }
 .search-list .item{
   padding: 0 30rpx 0 30rpx;
-  border-bottom: 6rpx solid #efeff4
+}
+
+.bottom{
+	height: 6rpx;
+	width: 100%;
+	background-color: #efeff4
 }
 
 .search-list .item .info{
@@ -24,4 +29,13 @@
   justify-content: space-between;
   line-height: 80rpx;
   border-bottom: 1rpx solid #efeff4
+}
+
+.handle{
+	width: 80rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #00a800;
+	color: white
 }

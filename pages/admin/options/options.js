@@ -25,10 +25,10 @@ Page({
           })
         }
         break
-      case "add":
+			case "empManage":
         {
           wx.navigateTo({
-            url: '../addEmployee/addEmployee',
+						url: '../employee/employee',
           })
         }
         break

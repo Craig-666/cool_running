@@ -1,0 +1,9 @@
+{
+	"navigationBarTitleText": "员工管理",
+	"navigationBarBackgroundColor": "#F5082A",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"myToast": "../../../components/myToast/myToast",
+		"addEmployee": "../../../components/addEmployee/addEmployee"
+	}
+}

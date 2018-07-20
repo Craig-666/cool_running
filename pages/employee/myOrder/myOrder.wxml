@@ -1,0 +1,18 @@
+<!--pages/employee/myOrder/myOrder.wxml-->
+<view class='top'>
+  <view id='0' bindtap='handleTap' class="date {{curIndex == '0' ? 'info-done' :''}}">当天<text wx:if="{{curIndex == '0'}}"> 共{{total}}单</text></view>
+  <view id='1' bindtap='handleTap' class="date {{curIndex == '1' ? 'info-done' :''}}">当月<text wx:if="{{curIndex == '1'}}"> 共{{total}}单</text></view>
+</view>
+
+<view class='list'>
+  <view wx:for="{{list}}" wx:key='index' class="orderItem {{(item.order_status == 2 || item.handled) ? 'info-done' :''}} {{(item.order_status == 3 && !item.handled)? 'info-error' :''}}">
+    <view class='info'>
+      <view>电话:{{item.phone_num}}</view>
+      <view>转接:{{item.transfer_num}}</view>
+      <view>楼号:{{item.building_num}}</view>
+    </view>
+    <view class='info'>{{item.updatedAt}}</view>
+    <view class='info' wx:if="{{item.order_status == 3}}">异常原因:{{item.abnormal_reason}}</view>
+  </view>
+</view>
+<view wx:if='{{list.length == total}}' class='no-more'>已加载全部</view>

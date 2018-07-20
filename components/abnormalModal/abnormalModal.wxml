@@ -8,7 +8,7 @@
           <icon class="{{selIndex != index ? 'un-icon' :''}}" size='22' type="{{selIndex == index ? 'success' :''}}"></icon>
         </view>
         <view class='textarea'>
-          <textarea value='{{abReason}}' bindinput='_reason' style='text-align:left;height:150rpx' maxlength='50' placeholder='输入原因(优先级最高)'></textarea>
+          <textarea value='{{abReason}}' bindinput='_reason' style='text-align:left;height:150rpx' maxlength='50' placeholder='输入原因'></textarea>
         </view>
         <view class='footer'>
           <view class='left' catchtap='_cancelEvent'>{{ cancelText }}</view>
