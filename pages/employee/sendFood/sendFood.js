@@ -89,7 +89,7 @@ Page({
     query.set('abnormal_reason', reason)
     query.save().then(res => {
       that.myToast.show('操作成功')
-      phoneList[index].orderStatus = 3
+      phoneList[index].order_status = 3
       that.setData({
         phoneList
       })
@@ -137,7 +137,7 @@ Page({
               query.set('id', phoneList[index].objectId)
               query.set('order_status', 2)
               query.save().then(res => {
-                phoneList[index].orderStatus = 2
+                phoneList[index].order_status = 2
                 that.setData({
                   phoneList
                 })
