@@ -77,11 +77,34 @@ Page({
         break
       case 'last':
         {
-					if(wx.getStorageSync('delivery_objectId')){
-						wx.redirectTo({
-							url: '../sendFood/sendFood',
-						})
-					}
+          if (wx.getStorageSync('delivery_objectId')) {
+            wx.redirectTo({
+              url: '../sendFood/sendFood',
+            })
+          }
+        }
+        break
+      case 'order':
+        {
+          wx.navigateTo({
+            url: '../myOrder/myOrder',
+          })
+        }
+        break
+      case 'logout':
+        {
+					wx.showModal({
+						title: '提示',
+						content: '确定要退出吗',
+						success:function(res){
+							if(res.confirm){
+								wx.clearStorage()
+								wx.redirectTo({
+									url: '../../index/index',
+								})
+							}
+						}
+					}) 
         }
         break
       case 'done':
@@ -193,14 +216,4 @@ Page({
       buildingFocus: false
     })
   },
-
-  logout: function() {
-    wx.clearStorage()
-    wx.redirectTo({
-      url: '../../index/index',
-    })
-    // wx.navigateTo({
-    //   url: '../myOrder/myOrder',
-    // })
-  }
 })
