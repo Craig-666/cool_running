@@ -17,6 +17,7 @@ Page({
     let that = this
     const query = Bmob.Query('order');
     query.equalTo('delivery_id', '==', options.objid)
+    query.limit(1000)
     query.find().then(res => {
       that.setData({
         orderList:res

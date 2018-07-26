@@ -1,9 +1,9 @@
 <!--pages/admin/employee/employee.wxml-->
 <view wx:for="{{employeeList}}" wx:key='index' class='employee'>
-  <view>{{item.name}}</view>
-  <view>{{item.username}}</view>
+  <view style='flex:1'>{{item.name}}</view>
+  <view style='flex:1'>{{item.username}}</view>
   <view style='display:flex'>
-    <view id='delete' bindtap='handleTap' data-index='{{index}}' class='opt info-error'>删除</view>
+    <!-- <view id='delete' bindtap='handleTap' data-index='{{index}}' class='opt info-error'>删除</view> -->
     <view id='edit' bindtap='handleTap' data-index='{{index}}' class='opt info-done'>编辑</view>
   </view>
 

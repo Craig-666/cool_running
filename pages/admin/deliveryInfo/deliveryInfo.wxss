@@ -15,6 +15,10 @@
 }
 
 .item{
+  border-bottom: 6rpx solid #efeff4;
+}
+
+.info{
   display: flex;
   border-bottom: 2rpx solid #efeff4;
   align-items: center;
@@ -22,4 +26,7 @@
   height: 80rpx;
   box-sizing: border-box;
   padding: 20rpx 30rpx
+}
+.gray{
+  color:  gray
 }

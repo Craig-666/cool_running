@@ -13,5 +13,5 @@
   </view>
 </view>
 
-<view id='search' class='other' bindtap='handleTap'>☺</view>
+<view id='search' class='other' bindtap='handleTap'>😯</view>
 <view id='abnormal' wx:if="{{abCount>0}}" class='abnormal' bindtap='handleTap'>{{waitHandle}}/{{abCount}}</view>

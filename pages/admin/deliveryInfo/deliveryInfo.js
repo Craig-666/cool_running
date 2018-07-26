@@ -18,8 +18,12 @@ Page({
     const query = Bmob.Query('delivery_count');
     query.equalTo('createdAt', '>', util.getToday())
     query.equalTo('user_phone', '==', options.phone)
+    query.limit(1000)
     query.find().then(res=>{
       console.log(res)
+      res.map(ele=>{
+        ele.timeDiff = util.timeDiff(ele.createdAt, ele.updatedAt)
+      })
       that.setData({
         phone:options.phone,
         name:options.name,
