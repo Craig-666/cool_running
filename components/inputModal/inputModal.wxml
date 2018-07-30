@@ -5,7 +5,7 @@
         <view class='title'>{{ title }}</view>
         <input class='input' id='phoneNum' type='number' value='{{orderItem.phoneNum}}' bindinput='_handleInput' maxlength='11' placeholder='手机号'></input>
         <view class='input-block'>
-          <input style='flex:1' id='transferNum' type='number' value='{{orderItem.transferNum}}' bindinput='_handleInput' placeholder='转接号'/>
+          <input style='flex:1' id='transferNum' type='digit' value='{{orderItem.transferNum}}' bindinput='_handleInput' placeholder='转接号'/>
           <input style='flex:1;margin-left:20rpx' id='buildingNum' value='{{orderItem.buildingNum}}' bindinput='_handleInput' placeholder='楼号'/>
         </view>
         <view class='footer'>

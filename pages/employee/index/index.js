@@ -150,7 +150,7 @@ Page({
       queryObj.set("phone_num", phoneItem.phoneNum)
       queryObj.set("building_num", phoneItem.buildingNum)
       queryObj.set("create_name", util.getUserName())
-      queryObj.set("transfer_num", phoneItem.transferNum)
+      queryObj.set("transfer_num", phoneItem.transferNum.split('.')[0])
       queryObj.set("create_phone", util.getUserPhone())
       queryObj.set("order_status", 1)
       queryObj.set("boss_id", util.getBossId())
@@ -194,10 +194,10 @@ Page({
       this.myToast.show('手机号不对')
       return
     }
-    // if (this.data.transferNum.length < 4) {
-    //   this.myToast.show('转接号不对')
-    //   return
-    // }
+    if (this.data.transferNum.length < 4) {
+      this.myToast.show('转接号不对')
+      return
+    }
     if (this.data.buildingNum == '') {
       this.myToast.show('楼号没输')
       return
