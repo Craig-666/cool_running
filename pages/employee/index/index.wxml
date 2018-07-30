@@ -2,7 +2,7 @@
 <view class='fix-block'>
   <view class='num-block'>
     <input class='input' focus='{{phoneFocus}}' id='phone' style='flex:2' value='{{phoneNum}}' bindinput='handleInput' type='number' placeholder='手机号' maxlength='11' placeholder-class='input-placeholder'></input>
-    <input class='input' focus='{{transferFocus}}' style='flex:1;margin-left:20rpx' id='transfer' value='{{transferNum}}' bindinput='handleInput' type='number' placeholder='转接号' maxlength='4' placeholder-class='input-placeholder'></input>
+    <input class='input' focus='{{transferFocus}}' style='flex:1;margin-left:20rpx' id='transfer' value='{{transferNum}}' bindinput='handleInput' type='number' placeholder='转接号' placeholder-class='input-placeholder'></input>
     <input class='input' focus='{{buildingFocus}}' style='flex:1;margin-left:20rpx' id='building' value='{{buildingNum}}' bindinput='handleInput' placeholder='楼号'  placeholder-class='input-placeholder'></input>
   </view>
   <view class='btn-block'>

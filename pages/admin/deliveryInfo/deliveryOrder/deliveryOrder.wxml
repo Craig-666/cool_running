@@ -5,6 +5,6 @@
     <view>转接:{{item.transfer_num}}</view>
     <view>楼号:{{item.building_num}}</view>
   </view>
-  <view class='info'>创建时间:{{item.updatedAt}}</view>
+  <view class='info'>拨打时间:{{item.updatedAt}}</view>
   <view class='info' wx:if="{{item.order_status == 3}}">异常原因:{{item.abnormal_reason}}</view>
 </view>
