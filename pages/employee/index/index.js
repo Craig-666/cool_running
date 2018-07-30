@@ -194,10 +194,10 @@ Page({
       this.myToast.show('手机号不对')
       return
     }
-    if (this.data.transferNum.length < 4) {
-      this.myToast.show('转接号不对')
-      return
-    }
+    // if (this.data.transferNum.length < 4) {
+    //   this.myToast.show('转接号不对')
+    //   return
+    // }
     if (this.data.buildingNum == '') {
       this.myToast.show('楼号没输')
       return
