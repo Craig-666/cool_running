@@ -69,22 +69,25 @@ Page({
       content: '确定都送完餐并且进行下一轮输入吗',
       success: function(e) {
         if (e.confirm) {
-          let objId = wx.getStorageSync('delivery_objectId')
-          let isUpdated = wx.getStorageSync('isUpdated')
-          if(isUpdated){
-            wx.redirectTo({
-              url: '../index/index'
-            })
-          }else{
-            const query = Bmob.Query("delivery_count");
-            query.set('id', objId)
-            query.save().then(res => {
-              wx.setStorageSync('isUpdated', true)
-              wx.redirectTo({
-                url: '../index/index'
-              })
-            })
-          }
+          wx.redirectTo({
+            url: '../index/index'
+          })
+          // let objId = wx.getStorageSync('delivery_objectId')
+          // let isUpdated = wx.getStorageSync('isUpdated')
+          // if(isUpdated){
+          //   wx.redirectTo({
+          //     url: '../index/index'
+          //   })
+          // }else{
+          //   const query = Bmob.Query("delivery_count");
+          //   query.set('id', objId)
+          //   query.save().then(res => {
+          //     wx.setStorageSync('isUpdated', true)
+          //     wx.redirectTo({
+          //       url: '../index/index'
+          //     })
+          //   })
+          // }
         }
       }
     })

@@ -121,7 +121,7 @@ Page({
           query.set('order_count', this.data.phoneList.length)
           query.save().then(res => {
             let objectId = res.objectId
-            wx.setStorageSync('isUpdated', false)
+            // wx.setStorageSync('isUpdated', false)
             wx.setStorageSync('delivery_objectId', objectId)
             that.savePhone(objectId)
           })
