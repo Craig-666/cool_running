@@ -1,0 +1,13 @@
+<!--pages/shopManager/shops/shops.wxml-->
+<view wx:for="{{shopList}}" wx:key='index' class='employee'>
+  <view style='flex:1'>{{item.shopName}}</view>
+  <view style='display:flex'>
+    <!-- <view id='delete' bindtap='handleTap' data-index='{{index}}' class='opt info-error'>删除</view> -->
+    <view id='edit' bindtap='handleTap' data-index='{{index}}' class='opt info-done'>编辑</view>
+  </view>
+
+</view>
+
+<view id='add' bindtap='handleTap' data-index='' class='add'>+</view>
+<myToast class='myToast' />
+<addShop title='{{title}}' class='addShop' isAdd="{{isAdd}}" shopInfo="{{shopInfo}}" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"/>

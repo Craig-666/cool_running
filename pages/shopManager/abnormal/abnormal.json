@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "异常",
+	"navigationBarBackgroundColor": "#F5082A",
+	"usingComponents": {
+		"myToast": "../../../components/myToast/myToast"
+	}
+}

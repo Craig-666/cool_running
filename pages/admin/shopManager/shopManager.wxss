@@ -1,0 +1,29 @@
+/* pages/admin/shopManager/shopManager.wxss */
+/* pages/admin/employee/employee.wxss */
+.add{
+	position: fixed;
+	width: 100rpx;
+	line-height: 100rpx;
+	background: #00A800;
+	border-radius: 50rpx;
+	color: white;
+	bottom: 100rpx;
+	right: 50rpx;
+	font-size: 80rpx;
+	text-align: center;
+}
+.add:active{
+	opacity: 0.6
+}
+
+.employee{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 30rpx;
+	border-bottom: 1rpx solid #efeff4;
+}
+
+.opt{
+	padding: 20rpx 30rpx;
+}

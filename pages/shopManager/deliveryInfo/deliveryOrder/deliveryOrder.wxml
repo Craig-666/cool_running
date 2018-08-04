@@ -1,0 +1,10 @@
+<!--pages/admin/deliveryInfo/deliveryOrder/deliveryOrder.wxml-->
+<view wx:for="{{orderList}}" wx:key='index' class="item {{(item.order_status == 2 || item.handled) ? 'info-done' :''}} {{(item.order_status == 3 && !item.handled)? 'info-error' :''}}">
+  <view class='info'>
+    <view>电话:{{item.phone_num}}</view>
+    <view>转接:{{item.transfer_num}}</view>
+    <view>楼号:{{item.building_num}}</view>
+  </view>
+  <view class='info'>拨打时间:{{item.updatedAt}}</view>
+  <view class='info' wx:if="{{item.order_status == 3}}">异常原因:{{item.abnormal_reason}}</view>
+</view>

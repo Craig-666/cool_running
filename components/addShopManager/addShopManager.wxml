@@ -1,0 +1,15 @@
+<!--components/addShopMananger/addShopMananger.wxml-->
+<view hidden="{{!isShow}}">
+  <view class='modal-mask' catchtap="{{tapClose ? '_cancelEvent' : ''}}"></view>
+  <view class='input-modal'>
+    <view class='title'>{{ title }}</view>
+    <input class='input' id='username' type='number' value='{{shopManagerInfo.username}}' bindinput='_handleInput' maxlength='11' placeholder='手机号'></input>
+    <input class='input' id='name' value='{{shopManagerInfo.name}}' bindinput='_handleInput' maxlength='10' placeholder='姓名'></input>
+    <input class='input' id='shopName' value='{{shopManagerInfo.shopName}}' bindinput='_handleInput' maxlength='10' placeholder='店铺名'></input>
+    <view class='footer'>
+      <view class='left' catchtap='_cancelEvent'>{{ cancelText }}</view>
+      <view class='right' catchtap='_confirmEvent'>{{ confirmText }}</view>
+    </view>
+  </view>
+</view>
+<myToast class='myToast'></myToast>

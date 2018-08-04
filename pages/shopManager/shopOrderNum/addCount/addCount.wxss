@@ -1,0 +1,12 @@
+.input ,.save{
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx
+}
+
+.input{
+  height: 80rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  padding-left: 10rpx
+}

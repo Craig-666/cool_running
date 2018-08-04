@@ -1,0 +1,8 @@
+<picker bindchange='handleChange' range='{{shopList}}' range-key='shopName'>
+  <input class='input' placeholder='选择商家' value='{{shopInfo.shopName}}' disabled='true'></input>
+</picker>
+
+<input class='input' bindinput='handleInput' placeholder='单量' type='number'></input>
+
+<button bindtap='save' class='save'>保存</button>
+<myToast class='myToast' />

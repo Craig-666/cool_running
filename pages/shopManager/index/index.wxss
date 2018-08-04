@@ -1,0 +1,53 @@
+/* pages/shopManager/index/index.wxss */
+.title{
+  width: 100%;
+  background-color: #eee;
+  line-height: 80rpx;
+  display: flex;
+  border-bottom: 1rpx solid #efeff4;
+  padding: 0 30rpx;
+  z-index: 2;
+  top: 0;
+  position: fixed;
+  box-sizing: border-box
+}
+
+.list{
+  padding-top: 80rpx
+}
+
+.item{
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx ;
+  border-bottom: 4rpx solid #efeff4
+}
+
+.other{
+  z-index: 10;
+  width: 100rpx;
+  line-height: 100rpx;
+  bottom: 50rpx;
+  position: fixed;
+  border-radius: 50rpx;
+  background: #00A800;
+  color: white;
+  text-align: center;
+  right: 50rpx
+}
+.other:active, .abnormal:active{
+  opacity: 0.6
+}
+
+.abnormal{
+  z-index: 10;
+  width: 100rpx;
+  line-height: 100rpx;
+  bottom: 200rpx;
+  position: fixed;
+  border-radius: 50rpx;
+  background: #F5082A;
+  color: white;
+  text-align: center;
+  right: 50rpx
+}

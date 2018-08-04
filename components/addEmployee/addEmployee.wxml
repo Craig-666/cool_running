@@ -3,7 +3,7 @@
   <view class='modal-mask' catchtap="{{tapClose ? '_cancelEvent' : ''}}"></view>
   <view class='input-modal'>
     <view class='title'>{{ title }}</view>
-    <input class='input' id='username' type='number' value='{{employeeInfo.username}}' bindinput='_handleInput' maxlength='11' placeholder='手机号'></input>
+    <input class='input' id='username' disabled='{{!isAdd}}' type='number' value='{{employeeInfo.username}}' bindinput='_handleInput' maxlength='11' placeholder='手机号'></input>
     <input class='input' id='name' value='{{employeeInfo.name}}' bindinput='_handleInput' maxlength='10' placeholder='姓名'></input>
     <view class='footer'>
       <view class='left' catchtap='_cancelEvent'>{{ cancelText }}</view>

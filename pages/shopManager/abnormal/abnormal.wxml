@@ -1,0 +1,26 @@
+<!--pages/admin/abnormal/abnormal.wxml-->
+<view class='total'>当天共
+  <text class='info-error'>{{total}}</text>单异常 待处理:
+  <text class='info-error'>{{waitCount}}</text>
+</view>
+<view class='search-list'>
+  <view wx:for='{{dataSource}}' wx:key='index'>
+    <view style='display:flex' id='copy' data-index='{{index}}' bindlongtap='handleTap'>
+      <view style='flex:1' class="item {{item.handled ? 'info-done' :''}}">
+        <view id='call' bindtap='handleTap' data-phone='{{item.phone_num}}' class='info'>
+          <view>电话：{{item.phone_num}}</view>
+          <view>转接：{{item.transfer_num}}</view>
+          <view>楼号：{{item.building_num}}</view>
+        </view>
+        <view class='info'>更新时间:{{item.updatedAt}}</view>
+        <view class='info'>异常原因:{{item.abnormal_reason}}</view>
+        <view id='call' bindtap='handleTap' data-phone='{{item.create_phone}}' class='info'>送餐员:{{item.create_name}} {{item.create_phone}}</view>
+      </view>
+      <view wx:if="{{!item.handled}}" data-index='{{index}}' id='handle' bindtap='handleTap' class='handle'>处理</view>
+    </view>
+    <view class='bottom'></view>
+  </view>
+
+</view>
+<view wx:if='{{dataSource.length == total}}' class='no-more'>已加载全部</view>
+<myToast class='myToast' />

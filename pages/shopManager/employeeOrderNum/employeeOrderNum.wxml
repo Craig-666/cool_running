@@ -1,0 +1,7 @@
+<!--pages/shopManager/employeeOrderNum/employeeOrderNum.wxml-->
+<view wx:for="{{list}}" wx:key='index' class='item'>
+  <view >{{item.name}}<text style='color:#999'>({{item.username}})</text></view>
+  <view >单量: {{item.count}}</view>
+</view>
+
+<view id='add' bindtap='add' data-index='' class='add'>填</view>

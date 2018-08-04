@@ -1,0 +1,8 @@
+<!--pages/admin/index/index.wxml-->
+
+<button id='empManage' bindtap='handleTap' class='option'>员工管理</button>
+<button id='empOrderNum' bindtap='handleTap' class='option'>员工当日单量</button>
+<button id='shops' bindtap='handleTap' class='option'>合作商家</button>
+<button id='shopOrderNum' bindtap='handleTap' class='option'>商家当日单量</button>
+
+<button id='logout' class='option' bindtap='handleTap'>退出</button>

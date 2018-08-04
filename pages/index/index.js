@@ -15,7 +15,11 @@ Page({
           // url: '../admin/options/options',
           url: '../admin/index/index',
         })
-      } else {
+      } else if(userInfo.isShopManager){
+        wx.redirectTo({
+          url: '../shopManager/index/index',
+        })
+      }else{
         wx.redirectTo({
           url: '../employee/index/index',
         })
@@ -41,7 +45,11 @@ Page({
           url: '../admin/index/index',
           // url: '../admin/options/options',
         })
-      }else{
+      } else if (res.isShopManager) {
+        wx.redirectTo({
+          url: '../shopManager/index/index',
+        })
+      } else {
         wx.redirectTo({
           url: '../employee/index/index',
         })

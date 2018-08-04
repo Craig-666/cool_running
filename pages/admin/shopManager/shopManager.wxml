@@ -1,0 +1,15 @@
+<!--pages/admin/shopManager/shopManager.wxml-->
+<view wx:for="{{employeeList}}" wx:key='index' class='employee'>
+  <view style='margin-right:20rpx'>{{item.name}}</view>
+  <view style='flex:1'>{{item.username}}</view>
+  <view style='flex:1'>{{item.shopName}}</view>
+  <view style='display:flex'>
+    <!-- <view id='delete' bindtap='handleTap' data-index='{{index}}' class='opt info-error'>删除</view> -->
+    <view id='edit' bindtap='handleTap' data-index='{{index}}' class='opt info-done'>编辑</view>
+  </view>
+
+</view>
+
+<view id='add' bindtap='handleTap' data-index='' class='add'>+</view>
+<myToast class='myToast' />
+<addShopManager title='{{title}}' class='addShopManager' isAdd="{{isAdd}}" shopManagerInfo="{{shopManagerInfo}}" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"/>

@@ -1,0 +1,26 @@
+<!--pages/admin/monthQuery/monthQuery.wxml-->
+<view class='search-top'>
+  <view style='flex:1' class='condition'>
+    <input value='{{phoneNum}}' style='flex:1' bindinput='handleInput' id='phone' placeholder='员工手机号' maxlength='11' type='number'></input>
+    <picker fields='day' bindchange='monthChange' style='flex:1' mode='date' >
+      <view>{{curDate}}</view>
+    </picker>
+  </view>
+  <button bindtap='doSearch' style='height:70rpx;display:flex;align-items:center' type='primary'>查询</button>
+</view>
+
+<view class='total info-error'>共{{total}}单<text style='margin-left:40rpx'>送餐{{delivery}}趟</text></view>
+
+<view class='search-list'>
+  <view wx:for='{{dataSource}}' wx:key='index' class="item {{(item.order_status == 2 || item.handled) ? 'info-done' :''}} {{(item.order_status == 3 && !item.handled)? 'info-error' :''}}">
+    <view class='info'>
+      <view>电话:{{item.phone_num}}</view>
+      <view>转接:{{item.transfer_num}}</view>
+      <view>楼号:{{item.building_num}}</view>
+    </view>
+    <view class='info'>创建时间:{{item.updatedAt}}</view>
+    <view class='info' wx:if="{{item.order_status == 3}}">异常原因:{{item.abnormal_reason}}</view>
+  </view>
+</view>
+<view wx:if='{{dataSource.length == total}}' class='no-more'>已加载全部</view>
+<myToast class='myToast' />

@@ -9,6 +9,6 @@
 
 </view>
 
-<view id='add' bindtap='handleTap' data-index='' class='add'>+</view>
+<!-- <view id='add' bindtap='handleTap' data-index='' class='add'>+</view> -->
 <myToast class='myToast' />
 <addEmployee title='{{title}}' class='addEmployee' isAdd="{{isAdd}}" employeeInfo="{{employeeInfo}}" bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"/>

@@ -79,7 +79,6 @@ Component({
     _confirmEvent() {
       this.myToast = this.selectComponent(".myToast");
 
-      let orderItem = this.data.orderItem
       if (!util.checkPhoneNum(this.data.employeeInfo.username)) {
         this.myToast.show('手机号不对')
         return

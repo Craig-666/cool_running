@@ -1,0 +1,7 @@
+<!--pages/shopManager/shopOrderNum/shopOrderNum.wxml-->
+<view wx:for="{{list}}" wx:key='index' class='item'>
+  <view >{{item.shopName}}</view>
+  <view >单量: {{item.count}}</view>
+</view>
+
+<view id='add' bindtap='add' data-index='' class='add'>填</view>

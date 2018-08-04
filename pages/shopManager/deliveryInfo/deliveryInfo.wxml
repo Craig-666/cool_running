@@ -1,0 +1,16 @@
+<!--pages/admin/deliveryInfo/deliveryInfo.wxml-->
+<view class='emp-info'>姓名:{{name}} 电话:{{phone}}</view>
+<view class='list'>
+  <view class='item' bindtap='tap' data-objid='{{item.objectId}}' wx:for='{{delveryList}}' wx:key='index'>
+    <view class='info'>
+      <view>第{{index+1}}趟</view>
+      <view>{{item.order_count}}单</view>
+      <!-- <view>用时{{item.timeDiff}}</view> -->
+      <view>{{item.createdAt}}</view>
+    </view>
+    <!-- <view class='info gray'>
+      <view>起:{{item.createdAt}}</view>
+      <view>止:{{item.updatedAt}}</view>
+    </view> -->
+  </view>
+</view>

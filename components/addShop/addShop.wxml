@@ -1,0 +1,14 @@
+<!--components/addShop/addShop.wxml-->
+<view hidden="{{!isShow}}">
+  <view class='modal-mask' catchtap="{{tapClose ? '_cancelEvent' : ''}}"></view>
+  <view class='input-modal'>
+    <view class='title'>{{ title }}</view>
+    <input class='input' id='shopName' value='{{shopInfo.shopName}}' bindinput='_handleInput' placeholder='合作店铺名称'></input>
+    <!-- <input class='input' id='name' value='{{employeeInfo.name}}' bindinput='_handleInput' maxlength='10' placeholder='姓名'></input> -->
+    <view class='footer'>
+      <view class='left' catchtap='_cancelEvent'>{{ cancelText }}</view>
+      <view class='right' catchtap='_confirmEvent'>{{ confirmText }}</view>
+    </view>
+  </view>
+</view>
+<myToast class='myToast'></myToast>

@@ -25,6 +25,11 @@ Page({
           })
         }
         break
+      case 'shopManage':{
+        wx.navigateTo({
+          url: '../shopManager/shopManager',
+        })
+      }break
 			case "empManage":
         {
           wx.navigateTo({

@@ -1,0 +1,9 @@
+<!--pages/shopManager/employeeOrderNum/addCount/addCount.wxml-->
+<picker bindchange='handleChange' range='{{employeeList}}' range-key='name'>
+  <input class='input' placeholder='选择员工' value='{{employeeInfo.name}}' disabled='true'></input>
+</picker>
+
+<input class='input' bindinput='handleInput' placeholder='单量' type='number'></input>
+
+<button bindtap='save' class='save'>保存</button>
+<myToast class='myToast' />

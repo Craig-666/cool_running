@@ -23,6 +23,9 @@ Page({
     this.getReasons()
     this.getList()
   },
+  onShow:function(){
+    console.log('onShow')
+  },
 
   getList: function() {
     let objId = wx.getStorageSync('delivery_objectId')

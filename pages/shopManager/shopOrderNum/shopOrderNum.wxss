@@ -1,0 +1,23 @@
+/* pages/shopManager/shopOrderNum/shopOrderNum.wxss */
+.item{
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4rpx solid #efeff4
+}
+.add{
+	position: fixed;
+	width: 100rpx;
+	line-height: 100rpx;
+	background: #00A800;
+	border-radius: 50rpx;
+	color: white;
+	bottom: 100rpx;
+	right: 50rpx;
+	text-align: center;
+}
+.add:active{
+	opacity: 0.6
+}

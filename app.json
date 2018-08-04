@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/admin/index/index",
     "pages/employee/index/index",
     "pages/employee/sendFood/sendFood",
+    "pages/employee/myOrder/myOrder",
+    "pages/admin/index/index",
     "pages/admin/query/query",
     "pages/admin/monthQuery/monthQuery",
     "pages/admin/dayQuery/dayQuery",
@@ -12,7 +13,21 @@
     "pages/admin/deliveryInfo/deliveryInfo",
     "pages/admin/deliveryInfo/deliveryOrder/deliveryOrder",
     "pages/admin/employee/employee",
-    "pages/employee/myOrder/myOrder"
+    "pages/admin/shopManager/shopManager",
+    "pages/shopManager/shops/shops",
+    "pages/shopManager/index/index",
+    "pages/shopManager/query/query",
+    "pages/shopManager/monthQuery/monthQuery",
+    "pages/shopManager/dayQuery/dayQuery",
+    "pages/shopManager/options/options",
+    "pages/shopManager/abnormal/abnormal",
+    "pages/shopManager/deliveryInfo/deliveryInfo",
+    "pages/shopManager/deliveryInfo/deliveryOrder/deliveryOrder",
+    "pages/shopManager/employee/employee",
+    "pages/shopManager/employeeOrderNum/employeeOrderNum",
+    "pages/shopManager/shopOrderNum/shopOrderNum",
+    "pages/shopManager/employeeOrderNum/addCount/addCount",
+    "pages/shopManager/shopOrderNum/addCount/addCount"
   ],
   "window": {
     "backgroundTextStyle": "light",
