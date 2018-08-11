@@ -6,10 +6,15 @@
 </view>
 
 <view class='list'>
-  <view data-phone='{{item.username}}' data-name='{{item.name}}' id='employee' bindtap='handleTap' wx:for="{{datasource}}" wx:key='index' class='item'>
-    <view style='flex:2'>{{item.name}}<text style='color:#aaa'> ({{item.username}})</text></view>
-    <view style='flex:1'>{{item.delivery_count}}</view>
-    <view style='flex:1'>{{item.order_count}}</view>
+  <view wx:for="{{datasource}}" wx:key='index'>
+    <view class='shopManager'>{{item.shopName}} 店长:{{item.name}}  电话:{{item.username}}</view>
+    <view wx:for="{{item.employeeList}}" wx:key='j' data-index='j' wx:for-item='employee' data-phone='{{employee.username}}' data-name='{{employee.name}}' id='employee' bindtap='handleTap' class='item'>
+      <view style='flex:2'>{{employee.name}}
+        <text style='color:#aaa'> ({{employee.username}})</text>
+      </view>
+      <view style='flex:1'>{{employee.delivery_count}}</view>
+      <view style='flex:1'>{{employee.order_count}}</view>
+    </view>
   </view>
 </view>
 

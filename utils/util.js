@@ -17,18 +17,25 @@ const today=()=>{
   return [year, month, day].map(formatNumber).join('-') + ' ' + ['00', '00', '00'].map(formatNumber).join(':')
 }
 
-const curMonth = () => {
-	let date = new Date()
-	const year = date.getFullYear()
-	const month = date.getMonth() + 1
-	return [year, month, '01'].map(formatNumber).join('-') + ' ' + ['00', '00', '00'].map(formatNumber).join(':')
-}
 const shortToday = () => {
   let date = new Date()
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
   return [year, month, day].map(formatNumber).join('-') 
+}
+
+const curMonth = () => {
+	let date = new Date()
+	const year = date.getFullYear()
+	const month = date.getMonth() + 1
+	return [year, month, '01'].map(formatNumber).join('-') + ' ' + ['00', '00', '00'].map(formatNumber).join(':')
+}
+const shortMonth = () => {
+  let date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  return [year, month].map(formatNumber).join('-')
 }
 
 const formatNumber = n => {
@@ -145,5 +152,6 @@ module.exports = {
   shortToday: shortToday,
   getBeforeDays: getBeforeDays,
 	getCurMonth: curMonth,
-  timeDiff: timeDifc
+  timeDiff: timeDifc,
+  shortMonth:shortMonth
 }

@@ -1,6 +1,6 @@
 <!--pages/admin/index/index.wxml-->
 <button id='shopManage' bindtap='handleTap' class='option'>店长管理</button>
-<button id='empManage' bindtap='handleTap' class='option'>员工管理</button>
+<button id='shopOrders' bindtap='handleTap' class='option'>商家单量</button>
 <button id='query' bindtap='handleTap' class='option'>通话查询</button>
 <button id='day' bindtap='handleTap' class='option'>按天查询</button>
 <button id='month' bindtap='handleTap' class='option'>按月查询</button>

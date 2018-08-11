@@ -76,79 +76,50 @@ Page({
       })
       Promise.all(aList).then((employeeList) => {
         console.log('emp', employeeList)
-        for (let i = 0; i < employeeList.length; i++) {
-          if (employeeList[i].length > 0) {
-            let blist = []
-            employeeList[i].map((emp) => {
-              var queryObj = Bmob.Query('delivery_count');
-              queryObj.equalTo('createdAt', '>', util.getToday());
-              queryObj.equalTo('user_phone', '==', emp.username);
-              blist.push(queryObj.count())
-            })
-            let clist = []
-            employeeList[i].map(emp => {
-              var queryObj = Bmob.Query('order');
-              queryObj.equalTo('boss_id', '==', managerList[i].objectId);
-              queryObj.equalTo('create_phone', '==', emp.username);
-              queryObj.equalTo('createdAt', '>', util.getToday());
-              clist.push(queryObj.count())
-            })
-            Promise.all(blist).then((bb) => {
+        employeeList.map((employee,index)=>{
+          if(employee.length == 0){
+            return
+          }
+          let blist = []
+          let clist = []
+          employee.map((emp) => {
+            var bb = Bmob.Query('delivery_count');
+            bb.equalTo('createdAt', '>', util.getToday());
+            bb.equalTo('user_phone', '==', emp.username);
+            blist.push(bb.count())
 
-              Promise.all(clist).then(cc => {
+            var cc = Bmob.Query('order');
+            cc.equalTo('boss_id', '==', managerList[index].objectId);
+            cc.equalTo('create_phone', '==', emp.username);
+            cc.equalTo('createdAt', '>', util.getToday());
+            clist.push(cc.count())
+          })
+        
+          Promise.all(blist).then((dd) => {
+            console.log(dd)
+            dd.map((ff,ddindex)=>{
+              employee[ddindex].delivery_count = ff
+            })
 
-                employeeList[i].delivery_count = bb
-                employeeList[i].order_count = cc
-                managerList[i].employeeList = employeeList
-                console.log(managerList)
-                that.setData({
-                  employeeList: managerList
-                }, () => {
-                  wx.hideLoading()
-                  wx.stopPullDownRefresh()
-                })
+            Promise.all(clist).then(ee => {
+              console.log(ee)
+              dd.map((gg, ddindex) => {
+                employee[ddindex].order_count = gg
+              })
+              
+              managerList[index].employeeList = employee
+              console.log(managerList)
+              that.setData({
+                datasource: managerList
+              }, () => {
+                wx.hideLoading()
+                wx.stopPullDownRefresh()
               })
             })
-          }
-
-        }
+          })
+        })
       })
     })
-
-    // const query = Bmob.Query('_User');
-    // query.equalTo('boss_id', '==', util.getUserId())
-    // query.find().then(emplist=>{
-    //   let aList = new Array()
-    //   emplist.map(emp => {
-    //     var queryObj = Bmob.Query('order');
-    //     queryObj.equalTo('boss_id', '==', util.getUserId());
-    //     queryObj.equalTo('create_phone', '==', emp.username);
-    //     queryObj.equalTo('createdAt', '>', util.getToday());
-    //     aList.push(queryObj.count())
-    //   })
-    //   let bList = new Array()
-    //   emplist.map(emp => {
-    //     var queryObj = Bmob.Query('delivery_count');
-    //     queryObj.equalTo('createdAt', '>', util.getToday());
-    //     queryObj.equalTo('user_phone', '==', emp.username);
-    //     bList.push(queryObj.count())
-    //   })
-    //   Promise.all(aList).then(alist=>{
-    //     Promise.all(bList).then(blist=>{
-    //       emplist.map((ele,index)=>{
-    //         ele.delivery_count = blist[index]
-    //         ele.order_count = alist[index]
-    //       })
-    //       console.log(emplist)
-    //       that.setData({
-    //         datasource: emplist
-    //       },()=>{
-    //         wx.hideLoading()
-    //         wx.stopPullDownRefresh()
-    //       })
-    //     })
-    //   })
-    // })
   },
 
   handleTap: function(e) {

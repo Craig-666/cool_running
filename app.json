@@ -27,7 +27,8 @@
     "pages/shopManager/employeeOrderNum/employeeOrderNum",
     "pages/shopManager/shopOrderNum/shopOrderNum",
     "pages/shopManager/employeeOrderNum/addCount/addCount",
-    "pages/shopManager/shopOrderNum/addCount/addCount"
+    "pages/shopManager/shopOrderNum/addCount/addCount",
+    "pages/admin/shopOrders/shopOrders"
   ],
   "window": {
     "backgroundTextStyle": "light",

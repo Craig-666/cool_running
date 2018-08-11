@@ -30,13 +30,18 @@ Page({
           url: '../shopManager/shopManager',
         })
       }break
-			case "empManage":
-        {
-          wx.navigateTo({
-						url: '../employee/employee',
-          })
-        }
-        break
+			// case "empManage":
+      //   {
+      //     wx.navigateTo({
+			// 			url: '../employee/employee',
+      //     })
+      //   }
+      //   break
+      case 'shopOrders':{
+        wx.navigateTo({
+          url: '../shopOrders/shopOrders',
+        })
+      }break
       case "query":
         {
           wx.navigateTo({

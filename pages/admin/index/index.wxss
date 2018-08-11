@@ -16,6 +16,14 @@
   padding-top: 80rpx
 }
 
+.shopManager{
+  width: 100%;
+  line-height: 70rpx;
+  background-color: #fafafa;
+  box-sizing: border-box;
+  padding: 0 30rpx ;
+}
+
 .item{
   display: flex;
   box-sizing: border-box;
