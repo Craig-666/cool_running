@@ -1,0 +1,37 @@
+/* pages/admin/shopOrders/detail/detail.wxss */
+.btn-block{
+  width: 100%;
+  display: flex;
+}
+.btn{
+  margin: 30rpx;
+  flex: 1
+}
+.picker-block{
+  width: 100%;
+  line-height: 80rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  display: flex
+}
+.picker-content{
+  text-align: center;
+  flex: 1
+}
+
+.count-block{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 200rpx;
+  justify-content: center
+}
+
+.count{
+  width: 300rpx;
+  line-height: 300rpx;
+  border-radius: 150rpx;
+  font-size: 100rpx;
+  background-color: #eee;
+  text-align: center
+}

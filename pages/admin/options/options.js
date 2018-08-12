@@ -30,13 +30,6 @@ Page({
           url: '../shopManager/shopManager',
         })
       }break
-			// case "empManage":
-      //   {
-      //     wx.navigateTo({
-			// 			url: '../employee/employee',
-      //     })
-      //   }
-      //   break
       case 'shopOrders':{
         wx.navigateTo({
           url: '../shopOrders/shopOrders',
@@ -49,20 +42,11 @@ Page({
           })
         }
         break
-      case 'month':
-        {
-          wx.navigateTo({
-            url: '../monthQuery/monthQuery',
-          })
-        }
-        break
-      case 'day':
-        {
-          wx.navigateTo({
-            url: '../dayQuery/dayQuery',
-          })
-        }
-        break
+      case "orderCount":{
+        wx.navigateTo({
+          url: '../queryOrder/queryOrder',
+        })
+      }break
     }
   }
 })

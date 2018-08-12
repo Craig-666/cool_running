@@ -7,13 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    end:util.shortToday(),
-    fields:'day',
     startDate: util.shortToday(),
-    searchType:'按月',
-    shop:{shopName:'选商家'},
     shopList:[],
-    orderCount:0
   },
 
   /**
@@ -37,80 +32,41 @@ Page({
         aList.push(queryObj.find())
       })
       Promise.all(aList).then(res=>{
+        console.log(res)
         let shopList = []
-        res.map(ele=>{
-          ele.map(shop=>{
+        res.map(shops=>{
+          shops.map(shop=>{
             shopList.push(shop)
           })
         })
-        that.setData({
-          shopList
+        let blist = new Array()
+        shopList.map(shop=>{
+          let createdAt = this.data.startDate + ' 00:00:00'
+          let createEnd = util.dayEnd(this.data.startDate)
+          const aa = Bmob.Query('shopOrderCount');
+          aa.equalTo('shop_id', '==', shop.objectId)
+          aa.equalTo('createdAt', '>', createdAt)
+          aa.equalTo('createdAt', '<', createEnd)
+          blist.push(aa.find())
+        })
+        Promise.all(blist).then(count => {
+          console.log(count)
+          shopList.map((shop,index)=>{
+            shop.count = count[index].length > 0 ? count[index][0].order_count :0
+          })
+          that.setData({
+            shopList
+          })
         })
       })
     })
   },
 
-  handleChange:function(e){
+  handleTap:function(e){
     console.log(e)
-    let target = e.currentTarget
-    let dataset = target.dataset
-    let fields = this.data.fields
-    switch (target.id){
-      case 'timePicker': {
-        this.setData({
-          startDate:e.detail.value
-        })
-      }break
-      case 'shopPicker':{
-        let index = parseInt(e.detail.value)
-        let shop = this.data.shopList[index]
-        this.setData({
-          shop
-        })
-      }break
-      case 'typeChange':{
-        if(fields == 'day'){
-          this.setData({
-            fields:'month',
-            searchType:'按天',
-            startDate:util.shortMonth(),
-            end:util.shortMonth()
-          })
-        }else{
-          this.setData({
-            fields: 'day',
-            searchType: '按月',
-            startDate: util.shortToday(),
-            end: util.shortToday()
-          })
-        }
-      }break
-    }
-  },
-  query:function(){
-    if(!this.data.shop.objectId){
-      this.myToast.show("先选商家")
-      return
-    }
-    let createdAt = ''
-    if(this.data.fields == 'day'){
-      createdAt = this.data.startDate + ' 00:00:00'
-    }else{
-      createdAt = this.data.startDate + '-01 00:00:00'
-    }
-    let that = this
-    const query = Bmob.Query('shopOrderCount');
-    query.equalTo('shop_id', '==', this.data.shop.objectId)
-    query.equalTo('createdAt', '>', createdAt)
-    query.find().then(res=>{
-      console.log(res)
-      let orderCount = 0
-      res.map(count=>{
-        orderCount += count.order_count
-      })
-      that.setData({
-        orderCount
-      })
+    let shop = e.currentTarget.dataset.shop
+    wx.navigateTo({
+      url: `./detail/detail?shop=${JSON.stringify(shop)}`,
     })
   }
 })

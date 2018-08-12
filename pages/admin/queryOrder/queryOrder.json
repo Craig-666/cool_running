@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "查询",
+  "navigationBarTitleText": "员工单量",
   "navigationBarBackgroundColor": "#F5082A",
   "usingComponents": {
     "myToast": "../../../components/myToast/myToast"

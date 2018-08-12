@@ -1,19 +1,5 @@
 <!--pages/admin/shopOrders/shopOrders.wxml-->
-<view class='picker-block'>
-  <picker class='picker-content' mode='date' end="{{end}}" fields='{{fields}}' bindchange='handleChange' id='timePicker'>
-    <view>{{startDate}}</view>
-  </picker>
-  <picker class='picker-content' range='{{shopList}}' range-key='shopName' bindchange='handleChange' id='shopPicker'>
-    <view >{{shop.shopName}}</view>
-  </picker>
+<view wx:for="{{shopList}}" wx:key='index' class='shopItem' data-shop='{{item}}' bindtap='handleTap'>
+  <view>{{item.shopName}}</view>
+  <view>{{item.count}}单</view>
 </view>
-<view class='btn-block'>
-  <button bindtap='handleChange' id='typeChange' class='btn'>{{searchType}}</button>
-  <button bindtap='query' class='btn' type='primary'>查询</button>
-</view>
-<view class='count-block'>
-  共 
-  <view class='count'>{{orderCount}}</view>
-   单
-</view>
-<myToast class='myToast' />

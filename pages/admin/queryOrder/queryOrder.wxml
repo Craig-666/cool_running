@@ -1,0 +1,25 @@
+<!--pages/admin/queryOrder/queryOrder.wxml-->
+<view class='picker-block'>
+  <picker class='picker-content' mode='date' end="{{end}}" fields='{{fields}}' bindchange='handleChange' id='timePicker'>
+    <view>{{startDate}}</view>
+  </picker>
+  <picker class='picker-content' range='{{employeeList}}' range-key='name' bindchange='handleChange' id='employeePicker'>
+    <view>{{employee.name}}</view>
+  </picker>
+</view>
+<view class='btn-block'>
+  <button bindtap='handleChange' id='typeChange' class='btn'>{{searchType}}</button>
+  <button bindtap='query' class='btn' type='primary'>查询</button>
+</view>
+<view class='count-block'>
+  统计
+  <view class='count'>{{acount}}</view>
+   单
+</view>
+
+<view class='count-block'>
+  填写
+  <view class='count'>{{bcount}}</view>
+   单
+</view>
+<myToast class='myToast' />

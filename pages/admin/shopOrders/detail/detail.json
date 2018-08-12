@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "商家单量",
+    "navigationBarBackgroundColor": "#F5082A",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "myToast": "../../../../components/myToast/myToast"
+    }
+}

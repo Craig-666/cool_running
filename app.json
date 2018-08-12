@@ -6,8 +6,6 @@
     "pages/employee/myOrder/myOrder",
     "pages/admin/index/index",
     "pages/admin/query/query",
-    "pages/admin/monthQuery/monthQuery",
-    "pages/admin/dayQuery/dayQuery",
     "pages/admin/options/options",
     "pages/admin/abnormal/abnormal",
     "pages/admin/deliveryInfo/deliveryInfo",
@@ -16,9 +14,6 @@
     "pages/admin/shopManager/shopManager",
     "pages/shopManager/shops/shops",
     "pages/shopManager/index/index",
-    "pages/shopManager/query/query",
-    "pages/shopManager/monthQuery/monthQuery",
-    "pages/shopManager/dayQuery/dayQuery",
     "pages/shopManager/options/options",
     "pages/shopManager/abnormal/abnormal",
     "pages/shopManager/deliveryInfo/deliveryInfo",
@@ -28,7 +23,9 @@
     "pages/shopManager/shopOrderNum/shopOrderNum",
     "pages/shopManager/employeeOrderNum/addCount/addCount",
     "pages/shopManager/shopOrderNum/addCount/addCount",
-    "pages/admin/shopOrders/shopOrders"
+    "pages/admin/shopOrders/shopOrders",
+    "pages/admin/shopOrders/detail/detail",
+    "pages/admin/queryOrder/queryOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

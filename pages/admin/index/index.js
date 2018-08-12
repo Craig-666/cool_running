@@ -33,26 +33,52 @@ Page({
     clearInterval(this.data.interva)
   },
 
+  getManagerList:function(){
+    let that = this
+    const query = Bmob.Query('_User');
+    query.equalTo('boss_id', '==', util.getUserId())
+    query.equalTo('isShopManager', '==', true)
+    query.find().then(managerList => {
+      that.setData({
+        managerList
+      })
+    })
+  },
+
   queryAbnormal: function() {
     if (!util.getUserId()) {
       return
     }
     let that = this
-    const query = Bmob.Query('order');
-    query.equalTo('createdAt', '>', util.getToday())
+    const query = Bmob.Query('_User');
     query.equalTo('boss_id', '==', util.getUserId())
-    query.equalTo('order_status', "==", 3)
+    query.equalTo('isShopManager', '==', true)
+    query.find().then(managerList => {
+      let abCount = 0
+      let waitHandle = 0
+      managerList.map((manager,index)=>{
+        const aa = Bmob.Query('order');
+        aa.equalTo('createdAt', '>', util.getToday())
+        aa.equalTo('boss_id', '==', manager.objectId)
+        aa.equalTo('order_status', "==", 3)
 
-    const bq = Bmob.Query('order');
-    bq.equalTo('createdAt', '>', util.getToday())
-    bq.equalTo('boss_id', '==', util.getUserId())
-    bq.equalTo('order_status', "==", 3)
-    bq.equalTo('handled', "!=", true)
+        const bb = Bmob.Query('order');
+        bb.equalTo('createdAt', '>', util.getToday())
+        bb.equalTo('boss_id', '==', manager.objectId)
+        bb.equalTo('order_status', "==", 3)
+        bb.equalTo('handled', "!=", true)
 
-    Promise.all([query.count(), bq.count()]).then(values => {
-      that.setData({
-        abCount: values[0],
-        waitHandle: values[1]
+        Promise.all([aa.count(), bb.count()]).then(values => {
+          abCount += values[0]
+          waitHandle += values[1]
+          if(index == managerList.length - 1){
+            console.log('a',abCount,'b',waitHandle)
+            that.setData({
+              abCount,
+              waitHandle
+            })
+          }
+        })
       })
     })
   },

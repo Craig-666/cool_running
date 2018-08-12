@@ -22,10 +22,6 @@ Page({
 		this.myToast = this.selectComponent(".myToast")
   },
 
-	getwaitCount:function(){
-
-	},
-
   getList: function(loading) {
     if (loading) {
       wx.showLoading({
@@ -33,36 +29,52 @@ Page({
       })
     }
     let that = this
-    const query = Bmob.Query("order");
-    query.equalTo("createdAt", ">", that.data.startDate)
-    query.equalTo('order_status', "==", 3)
+    const query = Bmob.Query('_User');
     query.equalTo('boss_id', '==', util.getUserId())
-		query.equalTo('handled', '==', true)
-    query.limit(1000)
+    query.equalTo('isShopManager', '==', true)
+    query.find().then(managerList => {
+      let total = 0
+      let waitCount = 0
+      let list = []
 
-		const aa = Bmob.Query("order");
-		aa.equalTo("createdAt", ">", that.data.startDate)
-		aa.equalTo('order_status', "==", 3)
-		aa.equalTo('boss_id', '==', util.getUserId())
-		aa.limit(1000)
+      managerList.map((manager, index)=>{
+        const query = Bmob.Query("order");
+        query.equalTo("createdAt", ">", that.data.startDate)
+        query.equalTo('order_status', "==", 3)
+        query.equalTo('boss_id', '==', manager.objectId)
+        query.equalTo('handled', '==', true)
+        query.limit(1000)
 
-		const qq = Bmob.Query("order");
-		qq.equalTo("createdAt", ">", that.data.startDate)
-		qq.equalTo('order_status', "==", 3)
-		qq.equalTo('boss_id', '==', util.getUserId())
-		qq.equalTo('handled','!=',true)
-		qq.limit(1000)
+        const aa = Bmob.Query("order");
+        aa.equalTo("createdAt", ">", that.data.startDate)
+        aa.equalTo('order_status', "==", 3)
+        aa.equalTo('boss_id', '==', manager.objectId)
+        aa.limit(1000)
 
-		Promise.all([query.find(), aa.count(),qq.find(), qq.count()]).then(res => {
-			let list= res[2].concat(res[0])
-			that.setData({
-				dataSource: list,
-        total:res[1],
-				waitCount:res[3]
+        const qq = Bmob.Query("order");
+        qq.equalTo("createdAt", ">", that.data.startDate)
+        qq.equalTo('order_status', "==", 3)
+        qq.equalTo('boss_id', '==', manager.objectId)
+        qq.equalTo('handled', '!=', true)
+        qq.limit(1000)
+
+        Promise.all([query.find(), aa.count(), qq.find(), qq.count()]).then(res=>{
+          list = list.concat(res[2]) 
+          list = list.concat(res[0]) 
+          total += res[1]
+          waitCount += res[3]
+          if(index == managerList.length-1){
+            that.setData({
+              dataSource: list,
+              total,
+              waitCount
+            })
+            wx.hideLoading()
+          }
+        }).catch(() => {
+          wx.hideLoading()
+        })
       })
-      wx.hideLoading()
-    }).catch(()=>{
-      wx.hideLoading()
     })
   },
   handleTap:function(e){

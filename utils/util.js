@@ -25,6 +25,11 @@ const shortToday = () => {
   return [year, month, day].map(formatNumber).join('-') 
 }
 
+const dayEnd = (day) => {
+  return day + ' '  +['23', '59', '59'].map(formatNumber).join(':')
+}
+
+
 const curMonth = () => {
 	let date = new Date()
 	const year = date.getFullYear()
@@ -38,6 +43,10 @@ const shortMonth = () => {
   return [year, month].map(formatNumber).join('-')
 }
 
+const monthEnd = (month) => {
+  return month + '-31 ' +['23', '59', '59'].map(formatNumber).join(':')
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -49,8 +58,13 @@ const getUserInfo = () => {
 }
 
 const getUserId = () => {
-  let userInfo = JSON.parse(wx.getStorageSync('bmob'))
-  return userInfo.objectId
+  if (wx.getStorageSync('bmob')){
+    let userInfo = JSON.parse(wx.getStorageSync('bmob'))
+    return userInfo.objectId
+  }else{
+    return ''
+  }
+  
 }
 
 const getBossId = () => {
@@ -153,5 +167,7 @@ module.exports = {
   getBeforeDays: getBeforeDays,
 	getCurMonth: curMonth,
   timeDiff: timeDifc,
-  shortMonth:shortMonth
+  shortMonth:shortMonth,
+  dayEnd:dayEnd,
+  monthEnd:monthEnd
 }

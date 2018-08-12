@@ -147,6 +147,7 @@ Page({
         const query = Bmob.Query('_User');
         query.set('id', info.objectId)
         query.set('name', info.name)
+        query.set('shopName', info.shopName)
         query.save().then(res => {
           that.myToast.show('修改成功')
           list[index] = info
