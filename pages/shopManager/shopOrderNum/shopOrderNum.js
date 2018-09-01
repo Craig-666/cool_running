@@ -30,6 +30,7 @@ Page({
       res.map(ele => {
         const eq = Bmob.Query('shopOrderCount')
         eq.equalTo('shop_id', '==', ele.objectId)
+				eq.equalTo('createdAt','>',util.getToday())
         list.push(eq.find())
       })
       Promise.all(list).then(aa => {

@@ -56,7 +56,9 @@ Page({
           })
           that.setData({
             shopList
-          })
+					}, () => {
+						wx.stopPullDownRefresh()
+					})
         })
       })
     })
