@@ -42,7 +42,9 @@ Page({
         total: res[1],
         employeeList: arr
       })
-    })
+    }).finally(()=>{
+			wx.stopPullDownRefresh()
+		})
   },
   handleTap: function (e) {
     let id = e.currentTarget.id
